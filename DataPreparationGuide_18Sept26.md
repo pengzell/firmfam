@@ -1,8 +1,7 @@
 {30,58,95}
 {180,100,0}
 
-\title{**Data Preparation Guide**
-[6pt]
+\title{**Data Preparation Guide**\\[6pt]
        \large Firms and Intergenerational Mobility: Cross-Country Comparison}
 \author{}
 \date{}
@@ -69,21 +68,14 @@ files with the correct stem name (e.g., `Child_Panel.rds` or
 Every country should aim for the following cohort and observation window:
 
 \begin{center}
-\begin{tabular}{ll}
-  \toprule
-  **Parameter** & **Target** 
 
-  \midrule
-  Child birth cohorts      & 1980--1984 
+| **Parameter** | **Target** |
+| --- | --- |
+| Child birth cohorts | 1980--1984 |
+| Child observation ages | 35--40 |
+| Child observation years | 2015 onwards |
+| Parent income window | When child was aged 13--17 (approx. 1993--2001) |
 
-  Child observation ages   & 35--40 
-
-  Child observation years  & 2015 onwards 
-
-  Parent income window     & When child was aged 13--17 (approx. 1993--2001) 
-
-  \bottomrule
-\end{tabular}
 \end{center}
 
 \medskip
@@ -100,48 +92,31 @@ Any deviation will cause the script to fail or produce incorrect results.
 
 \begin{longtable}{p{3.5cm} p{2.2cm} p{7.5cm}}
   \toprule
-  **Variable** & **Type** & **Description** 
-
+  **Variable** & **Type** & **Description** \\
   \midrule
   \endhead
-  `workerID`     & String & Unique person identifier for the child 
-
-  `yob`          & Integer & Child's birth year 
-
-  `age`          & Integer & Child's age in the income year 
-
-    `female`       & Integer & Gender: $1 = $ woman, $0 = $ man 
-
-  `year`         & Integer & Calendar year of the income observation 
-
-  `earning`      & Numeric & Annual pre-tax labour earnings at the main employer. Inflation adjusted. 
-
-  `firmID`       & String  & Employer identifier 
-
+  `workerID`     & String & Unique person identifier for the child \\
+  `yob`          & Integer & Child's birth year \\
+  `age`          & Integer & Child's age in the income year \\
+    `female`       & Integer & Gender: $1 = $ woman, $0 = $ man \\
+  `year`         & Integer & Calendar year of the income observation \\
+  `earning`      & Numeric & Annual pre-tax labour earnings at the main employer. Inflation adjusted. \\
+  `firmID`       & String  & Employer identifier \\
   `f_workerID`  & String  & Person identifier of the father (or
-                                    household head if father unavailable) 
-
-`m_workerID`  & String  & Person identifier of the mother 
-
+                                    household head if father unavailable) \\
+`m_workerID`  & String  & Person identifier of the mother \\
   `FTE`          & Integer & Full-time Employed Dummy (see Section \ref{sec:FTE}): $1 = $ full-time,
-                                    $0 = $ otherwise 
-
+                                    $0 = $ otherwise \\
   \midrule
   \multicolumn{3}{l}{\textit{Variables used for covariate
-  decomposition if available--- see Section~\ref{sec:covariates})}} 
-
+  decomposition if available--- see Section~\ref{sec:covariates})}} \\
   \midrule
-  `ed_ID`       & Integer & Education level category 
-
+  `ed_ID`       & Integer & Education level category \\
   `czID`         & String/Int & Commuting zone or municipality identifier
-                                       at child age 13--17 
-
-  `immigrant_bg`& Integer & Child is classified as immigrant if at least two among {child, father, mother} were born abroad. 
-
-  `sectorID`     & String & Industry identifier (1-digit sector code) 
-
-  `munID`        & String & Municipality identifier 
-
+                                       at child age 13--17 \\
+  `immigrant_bg`& Integer & Child is classified as immigrant if at least two among {child, father, mother} were born abroad. \\
+  `sectorID`     & String & Industry identifier (1-digit sector code) \\
+  `munID`        & String & Municipality identifier \\
   \bottomrule
   \caption{Required and optional variables in `Child_Panel.dta`.}
 \end{longtable}
@@ -158,22 +133,15 @@ the parental income window (child age 13--17).
 
 \begin{longtable}{p{3.8cm} p{2.2cm} p{7.2cm}}
   \toprule
-  **Variable** & **Type** & **Description** 
-
+  **Variable** & **Type** & **Description** \\
   \midrule
   \endhead
-  `p_workerID`    & String  & Unique person identifier for the parent 
-
-  `p_yob`         & Integer & Parent's birth year 
-
-  `p_age`         & Integer & Parent's age in the income year 
-
-  `p_female` & Integer & 1 = mother, 0 = father 
-
-  `p_year`        & Integer & Calendar year of the income observation 
-
-  `p_earning`     & Numeric & Annual total pre-tax labour earnings of the parent. Inflation adjusted. 
-
+  `p_workerID`    & String  & Unique person identifier for the parent \\
+  `p_yob`         & Integer & Parent's birth year \\
+  `p_age`         & Integer & Parent's age in the income year \\
+  `p_female` & Integer & 1 = mother, 0 = father \\
+  `p_year`        & Integer & Calendar year of the income observation \\
+  `p_earning`     & Numeric & Annual total pre-tax labour earnings of the parent. Inflation adjusted. \\
   \bottomrule
   \caption{Required variables in `Parents_Panel`.}
 \end{longtable}
@@ -187,30 +155,20 @@ script applies year, age, and firm-size filters internally.
 
 \begin{longtable}{p{3.5cm} p{2.2cm} p{7.5cm}}
   \toprule
-  **Variable** & **Type** & **Description** 
-
+  **Variable** & **Type** & **Description** \\
   \midrule
   \endhead
-  `workerID`  & String  & Unique person identifier 
-
-  `year`      & Integer & Calendar year 
-
-  `age`       & Integer & Age in calendar year 
-
-  `earning`   & Numeric & Annual pre-tax labour earnings at the main employer. Inflation adjusted. 
-
-  `firmID`    & String  & Employer identifier 
-
-  `female`    & Integer & Gender: $1 = $ woman, $0 = $ man 
-
-  `FTE`       & Integer & Full-Time Employed Dummy (see Section \ref{sec:FTE}): $1 = $ full-time 
-
+  `workerID`  & String  & Unique person identifier \\
+  `year`      & Integer & Calendar year \\
+  `age`       & Integer & Age in calendar year \\
+  `earning`   & Numeric & Annual pre-tax labour earnings at the main employer. Inflation adjusted. \\
+  `firmID`    & String  & Employer identifier \\
+  `female`    & Integer & Gender: $1 = $ woman, $0 = $ man \\
+  `FTE`       & Integer & Full-Time Employed Dummy (see Section \ref{sec:FTE}): $1 = $ full-time \\
   \midrule
-  \multicolumn{3}{l}{*If available:*} 
-
+  \multicolumn{3}{l}{*If available:*} \\
   \midrule
-  `sectorID`  & String & Industry identifier (1-digit sector code) 
-
+  `sectorID`  & String & Industry identifier (1-digit sector code) \\
   \bottomrule
   \caption{Required and optional variables in `AKM_Sample.dta`.}
 \end{longtable}
@@ -330,17 +288,12 @@ The first version uses only the main cohort specification (children born
 corresponding panels now; they will be used in later robustness checks.
 
 \begin{center}
-\begin{tabular}{lll}
-  \toprule
-  **Extension** & **Purpose** & **Target** 
 
-  \midrule
-  Age extension    & Lifecycle effects & Born 1965--1969, ages 25--40, years 2005-- 
+| **Extension** | **Purpose** | **Target** |
+| --- | --- | --- |
+| Age extension | Lifecycle effects | Born 1965--1969, ages 25--40, years 2005-- |
+| Cohort extension | Change over time | Born 1965--1969, ages 35--40, years 2005-- |
 
-  Cohort extension & Change over time  & Born 1965--1969, ages 35--40, years 2005-- 
-
-  \bottomrule
-\end{tabular}
 \end{center}
 
 If prepared, save these as `Child_Panel_robustness`,
