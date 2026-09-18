@@ -1,5 +1,6 @@
+# Firms and Intergenerational Mobility: Cross-Country Comparison
 # Data Preparation Guide
-**Firms and Intergenerational Mobility: Cross-Country Comparison**
+For any question, contact erik.liss[at]sofi.su.se and u.lojkine[at]ucl.ac.uk
 
 # Overview
 
