@@ -72,7 +72,7 @@ The variable names below are *required* by the analysis script. Any deviation wi
 | **Variables used for covariate decomposition if available (see Covariate Variables section):** | | |
 | `ed_ID` | Integer | Education level category |
 | `czID` | String/Int | Commuting zone or municipality identifier at child age 13–17 |
-| `immigrant_bg` | Integer | Child is classified as immigrant if at least two among {child, father, mother} were born abroad. |
+| `immigrant_bg` | Integer | Child is classified as from an immigrant background if at least two among {child, father, mother} were born abroad. |
 | `sectorID` | String | Industry identifier (1-digit sector code) |
 | `munID` | String | Municipality identifier |
 
