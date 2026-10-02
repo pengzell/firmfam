@@ -42,7 +42,7 @@ The script auto-detects the format from the file extension. Simply save the file
 
 Every country should aim for the following cohort and observation window:
 
-| **Parameter** | **Target** | **Imperative** |
+| **Parameter** | **Target** | **Imperative?** |
 | --- | --- | --- |
 | Child birth cohorts | 1980–1984 | Yes |
 | Child observation years | 2015-2019 | Yes |
