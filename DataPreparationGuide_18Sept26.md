@@ -42,14 +42,11 @@ The script auto-detects the format from the file extension. Simply save the file
 
 Every country should aim for the following cohort and observation window:
 
-| **Parameter** | **Target** |
-| --- | --- |
-| Child birth cohorts | 1980–1984 |
-| Child observation ages | 35–40 |
-| Child observation years | 2015 onwards |
-| Parent income window | When child was aged 13–17 (approx. 1993–2001) |
-
-**If your data cannot support this target.** If data limitations make the 1980–1984 / ages 35–40 target infeasible, the overriding priority is *the age at which child income is measured*: shift cohorts so the child is observed as late as possible, then choose the parent income window and the AKM sample years around that.
+| **Parameter** | **Target** | **Imperative** |
+| --- | --- | --- |
+| Child birth cohorts | 1980–1984 | Yes |
+| Child observation years | 2015-2019 | Yes |
+| Parent observation years | 1993-1997 | No. Choose the closest available 5-year window |
 
 # Variable Names
 
