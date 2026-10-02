@@ -45,8 +45,8 @@ Every country should aim for the following cohort and observation window:
 | **Parameter** | **Target** | **Imperative?** |
 | --- | --- | --- |
 | Child birth cohorts | 1980–1984 | Yes |
-| Child observation years | 2015-2019 | Yes |
-| Parent observation years | 1993-1997 | No. Choose the closest available 5-year window |
+| Child observation years (Child Panel and AKM Panel) | 2015-2019 | Yes |
+| Parent observation years (Parents Panel) | 1993-1997 | No. Choose the closest available 5-year window |
 
 # Variable Names
 
@@ -75,11 +75,11 @@ The variable names below are *required* by the analysis script. Any deviation wi
 
 *Required and optional variables in `Child_Panel`.*
 
-The child panel should contain *one row per child per income year* within the observation window. The child cohort restriction (1980–1984) and age window (35–40) are applied by the script; you may include a slightly wider range and let the script filter.
+The child panel should contain *one row per child per income year* within the observation window. The child cohort restriction (1980–1984) and age window (35–40) are applied by the script.
 
 ## Parents Panel (name of file: `Parents_Panel`)
 
-The parents' panel contains *one row per parent per year with earnings* within the parental income window (child age 13–17).
+The parents' panel contains *one row per parent per year with earnings* within the parental income window.
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -94,7 +94,7 @@ The parents' panel contains *one row per parent per year with earnings* within t
 
 ## AKM Panel (name of file: `AKM_Sample`)
 
-The AKM panel should cover the *full working-age population* (all workers aged 25–65, not only the birth cohort of interest) for the years 2015 onward. A larger and longer panel improves the precision of the estimated firm pay premia. The script applies year, age, and firm-size filters internally.
+The AKM panel should cover the *full working-age population* (all workers aged 25–65, not only the birth cohort of interest) for the years 2015-2019. The script applies year, age, and firm-size filters internally.
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -116,29 +116,18 @@ The AKM panel should cover the *full working-age population* (all workers aged 2
 
 ### Defining the main employer
 
-If a worker had more than one employer in a given calendar year, then to define the main employer:
-1. Select the employer at which the worker spent the most time.
-2. If there is a tie, select the employer from whom the worker earned the most in that year.
-3. If duration of the employment spell is not available, then directly select the employment spells with highest annual earnings.
+If a worker had more than one employer in a given calendar year, then define the main employer as the employer of the job spell with highest annual earnings.
 
 ### Defining annual earnings at the main employer
 
 Construct `earning` using the following priority order; use the first option your data can support:
 
-- **Employer-specific earnings, scaled to a full-year equivalent**: take the earnings recorded at the main employer and scale them to a full year based on the number of months worked there that year, e.g., $\text{(earnings at main employer / months worked at main employer)} \times 12$.
+- **Employer-specific earnings, scaled to a full-year equivalent**: take the earnings recorded at the main employer and scale them to a full year based on the number of months (or days) worked there that year, e.g., $\text{(earnings at main employer / months worked at main employer)} \times 12$.
 - **Total annual earnings, not attributed to a specific employer**: if months worked at the main employer are unavailable (so the employer-specific figure cannot be annualised), use the worker's total annual earnings summed across all employers in that year instead, while still reporting `firmID` as the main employer identified above.
 
 ## Annual Earnings (`earning`) in the Parents Panel
 
 In contrast to the Child panel, in the Parents panel the earnings variable is total earnings in the year, i.e., the sum of earnings with all employers in that year.
-
-## Full-Time Employment (`FTE`) Filter
-
-Focus in the AKM-analysis is on full-time employed workers. To ensure comparability across countries, each team must create a binary `FTE` dummy variable ($1 =$ full-time equivalent worker, $0 =$ otherwise) in both the child panel and the AKM panel. To construct the FTE dummy, use the following priority order. If the first option is unavailable or cannot be implemented with your data, proceed to the next option in the list, and so on.
-
-- **Survey/administrative FTE indicator**: Your data already contains a variable/indicator for full-time employment status. Rename or recode it to `FTE` ($1 =$ full-time, $0 =$ otherwise).
-- **Minimum wage threshold**: You know the country's statutory or administrative annual minimum wage for each income year. Set $\text{FTE} = 1$ if annual earnings exceed this threshold.
-- **32.5% of national average**: Set $\text{FTE} = 1$ if annual earnings exceed $32.5\%$ of the mean annual earnings of the full working-age population in your AKM sample. This threshold should be computed from `AKM_Sample` and applied consistently to both the child panel and the AKM panel.
 
 ## Covariate Variables
 
@@ -153,13 +142,13 @@ Education level of the child, coded as an integer with the following constructio
 3. Some college / vocational post-secondary
 4. Bachelor's degree or above
 
-*Which year to use:* if possible, set `ed_ID` to the child's **latest observed education value within the adult observation window** (ages 35–40, from 2015 onward). If that is not feasible with your data, use the latest education value observed for the child overall.
+*Which year to use:* if possible, set `ed_ID` to the child's **latest observed education value within the adult observation window** (2015-2019). If that is not feasible with your data, use the latest education value observed for the child overall.
 
 ### Commuting zone (`czID`)
 
-Commuting zone where the child lived at age 13–17, i.e., during the parental income window. Use the finest geographic unit available that remains consistent across years. Store as a string or integer identifier. If the commuting zone is unavailable, you can set it equal to the municipality ID (`munID`).
+Commuting zone where the child lived during the parental income window. Use the finest geographic unit available that remains consistent across years. Store as a string or integer identifier. If the commuting zone is unavailable, you can set it equal to the municipality ID (`munID`).
 
-**Construction rule:** set `czID` (and `munID`) to the *modal* geography observed across ages 13–17 (based on year-specific residence information). If there is a tie between two or more geographies, select the **earliest** year's geography among the tied candidates — earlier childhood years are considered more formative, and the child is more likely to have already lived there before age 13. Report `munID` alongside `czID` even when `czID` is available, since both may be used in the analysis.
+**Construction rule:** set `czID` (and `munID`) to the *modal* geography observed across the window (based on year-specific residence information). If there is a tie between two or more geographies, select the **earliest** year's geography among the tied candidates — earlier childhood years are considered more formative, and the child is more likely to have already lived there before. Report `munID` alongside `czID` even when `czID` is available, since both may be used in the analysis.
 
 ### Immigrant background (`immigrant_bg`)
 
