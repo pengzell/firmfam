@@ -65,8 +65,8 @@ The variable names below are *required* by the analysis script. Any deviation wi
 | `firmID` | String | Employer identifier |
 | `f_workerID` | String | Person identifier of the father (or household head if father unavailable) |
 | `m_workerID` | String | Person identifier of the mother |
-| `FTE` | Integer | Full-time Employed Dummy (see Full-Time Employment Filter section): $1 =$ full-time, $0 =$ otherwise |
 | **Variables used for covariate decomposition if available (see Covariate Variables section):** | | |
+| `FTE` | Integer | Full-time Employed Dummy: $1 =$ full-time, $0 =$ otherwise |
 | `ed_ID` | Integer | Education level category |
 | `czID` | String/Int | Commuting zone or municipality identifier at child age 13–17 |
 | `immigrant_bg` | Integer | Child is classified as from an immigrant background if at least two among {child, father, mother} were born abroad. |
@@ -104,8 +104,8 @@ The AKM panel should cover the *full working-age population* (all workers aged 2
 | `earning` | Numeric | Annual pre-tax labour earnings at the main employer. Inflation adjusted. |
 | `firmID` | String | Employer identifier |
 | `female` | Integer | Gender: $1 =$ woman, $0 =$ man |
-| `FTE` | Integer | Full-Time Employed Dummy (see Full-Time Employment Filter section): $1 =$ full-time |
 | **If available:** | | |
+| `FTE` | Integer | Full-Time Employed Dummy: $1 =$ full-time |
 | `sectorID` | String | Industry identifier (1-digit sector code) |
 
 *Required and optional variables in `AKM_Sample`.*
