@@ -68,7 +68,7 @@ The variable names below are *required* by the analysis script. Any deviation wi
 | **Variables used for covariate decomposition if available (see Covariate Variables section):** | | |
 | `FTE` | Integer | Full-time Employed Dummy: $1 =$ full-time, $0 =$ otherwise |
 | `ed_ID` | Integer | Education level category |
-| `czID` | String/Int | Commuting zone or municipality identifier at child age 13–17 |
+| `czID` | String/Int | Commuting zone or municipality identifier |
 | `immigrant_bg` | Integer | Child is classified as from an immigrant background if at least two among {child, father, mother} were born abroad. |
 | `sectorID` | String | Industry identifier (1-digit sector code) |
 | `munID` | String | Municipality identifier |
@@ -89,6 +89,8 @@ The parents' panel contains *one row per parent per year with earnings* within t
 | `p_female` | Integer | $1 =$ mother, $0 =$ father |
 | `p_year` | Integer | Calendar year of the income observation |
 | `p_earning` | Numeric | Annual total pre-tax labour earnings of the parent. Inflation adjusted. |
+| **Variables used for covariate decomposition if available (see Covariate Variables section):** | | |
+| `p_czID` | String/Int | Current commuting zone or municipality identifier |
 
 *Required variables in `Parents_Panel`.*
 
@@ -146,9 +148,7 @@ Education level of the child, coded as an integer with the following constructio
 
 ### Commuting zone (`czID`)
 
-Commuting zone where the child lived during the parental income window. Use the finest geographic unit available that remains consistent across years. Store as a string or integer identifier. If the commuting zone is unavailable, you can set it equal to the municipality ID (`munID`).
-
-**Construction rule:** set `czID` (and `munID`) to the *modal* geography observed across the window (based on year-specific residence information). If there is a tie between two or more geographies, select the **earliest** year's geography among the tied candidates — earlier childhood years are considered more formative, and the child is more likely to have already lived there before. Report `munID` alongside `czID` even when `czID` is available, since both may be used in the analysis.
+Use the finest geographic unit available that remains consistent across years. Store as a string or integer identifier. If the commuting zone is unavailable, you can set it equal to the municipality ID (`munID`).
 
 ### Immigrant background (`immigrant_bg`)
 
