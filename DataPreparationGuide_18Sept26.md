@@ -156,10 +156,6 @@ Education level of the child, coded as an integer with the following constructio
 
 Commuting zone, with the same borders in the parents' and children's observation window. If you do not have a correspondence table from municipality to commuting zone, you can report the municipality code directly. 
 
-### Immigrant background (`immigrant_bg`)
-
-Binary indicator for immigrant background. Child is classified as immigrant if at least two among {child, father, mother} were born abroad.
-
 # Running the Script
 
 Once the datasets are in the `Extract/` subfolder, open `Firms Main Script.R` and set the following two lines at the top:
