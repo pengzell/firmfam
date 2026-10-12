@@ -63,7 +63,7 @@ The variable names below are *required* by the analysis script. Any deviation wi
 | `year` | Integer | Calendar year of the income observation |
 | `earning` | Numeric | Annual pre-tax labour earnings at the main employer. Inflation adjusted. |
 | `firmID` | String | Employer identifier |
-| `f_workerID` | String | Person identifier of the father (or household head if father unavailable) |
+| `f_workerID` | String | Person identifier of the father |
 | `m_workerID` | String | Person identifier of the mother |
 | **Variables used for covariate decomposition if available (see Covariate Variables section):** | | |
 | `FTE` | Integer | Full-time Employed Dummy: $1 =$ full-time, $0 =$ otherwise |
