@@ -68,10 +68,10 @@ The variable names below are *required* by the analysis script. Any deviation wi
 | **Variables used for covariate decomposition if available (see Covariate Variables section):** | | |
 | `FTE` | Integer | Full-time Employed Dummy: $1 =$ full-time, $0 =$ otherwise |
 | `ed_ID` | Integer | Education level category |
-| `czID` | String/Int | Commuting zone or municipality identifier |
-| `immigrant_bg` | Integer | Child is classified as from an immigrant background if at least two among {child, father, mother} were born abroad. |
-| `sectorID` | String | Industry identifier (1-digit sector code) |
-| `munID` | String | Municipality identifier |
+| `czID` | String/Int | Commuting zone identifier |
+| `industryID` | String | One-letter NACE code (or another equivalently coarse classification) |
+| `immigrant_bg` | Integer | Immigrant background: $1$ if at least two among {child, father, mother} were born abroad, otherwise $0$. |
+| `public` | Integer | $1=$ public sector, $0=$ non public sector |
 
 *Required and optional variables in `Child_Panel`.*
 
@@ -90,7 +90,9 @@ The parents' panel contains *one row per parent per year with earnings* within t
 | `p_year` | Integer | Calendar year of the income observation |
 | `p_earning` | Numeric | Annual total pre-tax labour earnings of the parent. Inflation adjusted. |
 | **Variables used for covariate decomposition if available (see Covariate Variables section):** | | |
-| `p_czID` | String/Int | Current commuting zone or municipality identifier |
+| `czID` | String/Int | Commuting zone identifier |
+| `industryID` | String | One-letter NACE code (or another equivalently coarse classification) |
+| `public` | Integer | $1=$ public sector, $0=$ non public sector |
 
 *Required variables in `Parents_Panel`.*
 
@@ -107,8 +109,12 @@ The AKM panel should cover the *full working-age population* (all workers aged 2
 | `firmID` | String | Employer identifier |
 | `female` | Integer | Gender: $1 =$ woman, $0 =$ man |
 | **If available:** | | |
-| `FTE` | Integer | Full-Time Employed Dummy: $1 =$ full-time |
-| `sectorID` | String | Industry identifier (1-digit sector code) |
+| `FTE` | Integer | Full-time Employed Dummy: $1 =$ full-time, $0 =$ otherwise |
+| `ed_ID` | Integer | Education level category |
+| `czID` | String/Int | Commuting zone identifier |
+| `industryID` | String | One-letter NACE code (or another equivalently coarse classification) |
+| `immigrant_bg` | Integer | Immigrant background: $1$ if at least two among {child, father, mother} were born abroad, otherwise $0$. |
+| `public` | Integer | $1=$ public sector, $0=$ non public sector |
 
 *Required and optional variables in `AKM_Sample`.*
 
@@ -148,7 +154,7 @@ Education level of the child, coded as an integer with the following constructio
 
 ### Commuting zone (`czID`)
 
-Use the finest geographic unit available that remains consistent across years. Store as a string or integer identifier. If the commuting zone is unavailable, you can set it equal to the municipality ID (`munID`).
+Commuting zone, with the same borders in the parents' and children's observation window. If you do not have a correspondence table from municipality to commuting zone, you can report the municipality code directly. 
 
 ### Immigrant background (`immigrant_bg`)
 
