@@ -40,13 +40,10 @@ The script auto-detects the format from the file extension. Simply save the file
 
 # Target Sample
 
-Every country should aim for the following cohort and observation window:
+Follow this priority order:
+1. Select the child birth cohort 1980-1984, with children's observation window (Child Panel and AKM Panel) 2015-2019. Observe parents in 1993-1997, or on a later 5- or 3-year window stopping in 2000 at the latest.
+2. If 1 is not feasible, select the child birth cohort 1987-1991, with children's observation window (Child Panel and AKM Panel) 2022-2024. Observe parents in 2000-2004 or a later 5- or 3-year window stopping in 2010 at the latest.
 
-| **Parameter** | **Target** | **Imperative?** |
-| --- | --- | --- |
-| Child birth cohorts | 1980–1984 | Yes |
-| Child observation years (Child Panel and AKM Panel) | 2015-2019 | Yes |
-| Parent observation years (Parents Panel) | 1993-1997 | No. Choose the closest available 5-year window |
 
 # Variable Names
 
