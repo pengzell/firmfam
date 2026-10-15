@@ -42,7 +42,7 @@ The script auto-detects the format from the file extension. Simply save the file
 
 Follow this priority order:
 1. Select the child birth cohort 1980-1984, with children's observation window (Child Panel and AKM Panel) 2015-2019. Observe parents in 1993-1997, or on a later 5- or 3-year window stopping in 2000 at the latest.
-2. If 1 is not feasible, select the child birth cohort 1987-1991, with children's observation window (Child Panel and AKM Panel) 2022-2024. Observe parents in 2000-2004 or a later 5- or 3-year window stopping in 2010 at the latest.
+2. If 1 is not feasible, select the child birth cohort 1987-1991, with children's observation window (Child Panel and AKM Panel) 2022-2024. Observe parents in 2000-2004 or a later 5- or 3-year window stopping in 2009 at the latest.
 
 
 # Variable Names
@@ -58,7 +58,7 @@ The variable names below are *required* by the analysis script. Any deviation wi
 | `age` | Integer | Child's age in the income year |
 | `female` | Integer | Gender: $1 =$ woman, $0 =$ man |
 | `year` | Integer | Calendar year of the income observation |
-| `earning` | Numeric | Annual pre-tax labour earnings at the main employer. Inflation adjusted. |
+| `earning` | Numeric | Annual pre-tax labour earnings at the main employer, adjusted for inflation (2015 prices). |
 | `firmID` | String | Employer identifier |
 | `f_workerID` | String | Person identifier of the father |
 | `m_workerID` | String | Person identifier of the mother |
@@ -85,7 +85,7 @@ The parents' panel contains *one row per parent per year with earnings* within t
 | `p_age` | Integer | Parent's age in the income year |
 | `p_female` | Integer | $1 =$ mother, $0 =$ father |
 | `p_year` | Integer | Calendar year of the income observation |
-| `p_earning` | Numeric | Annual total pre-tax labour earnings of the parent. Inflation adjusted. |
+| `p_earning` | Numeric | Annual total pre-tax labour earnings of the parent, adjusted for inflation (2015 prices). |
 | **Variables used for covariate decomposition if available (see Covariate Variables section):** | | |
 | `czID` | String/Int | Commuting zone identifier |
 | `industryID` | String | One-letter NACE code (or another equivalently coarse classification) |
@@ -102,7 +102,7 @@ The AKM panel should cover the *full working-age population* (all workers aged 2
 | `workerID` | String | Unique person identifier |
 | `year` | Integer | Calendar year |
 | `age` | Integer | Age in calendar year |
-| `earning` | Numeric | Annual pre-tax labour earnings at the main employer. Inflation adjusted. |
+| `earning` | Numeric | Annual pre-tax labour earnings at the main employer. Inflation adjusted (2015 prices). |
 | `firmID` | String | Employer identifier |
 | `female` | Integer | Gender: $1 =$ woman, $0 =$ man |
 | **If available:** | | |
