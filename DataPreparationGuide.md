@@ -160,7 +160,7 @@ main_path <- "/your/path/to/the/project/folder"
 country   <- "YourCountry"
 ```
 
-**Software requirements.** The script runs in R ($\ge 4.1$). The following packages are installed automatically on first run if not already present: `data.table`, `haven`, `lfe`, `ggplot2`, `systemfit`, `car`, `openxlsx`, `LeaveOutKSS`.
+**Software requirements.** The script runs in R ($\ge 4.1$). The following packages are installed automatically on first run if not already present: `data.table`, `haven`, `lfe`, `ggplot2`, `systemfit`, `car`, `openxlsx`.
 
 # Optional: Prepare Now If Convenient
 
