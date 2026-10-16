@@ -71,7 +71,7 @@ The variable names below are *required* by the analysis script. Any deviation wi
 
 *Required and optional variables in `Child_Panel`.*
 
-The child panel should contain *one row per child per income year* within the observation window. The child cohort restriction (1980–1984) and age window (35–40) are applied by the script.
+The child panel should contain *one row per child per income year* within the observation window. The child cohort restriction and age window (35–40) are applied by the script.
 
 ## Parents Panel (name of file: `Parents_Panel`)
 
