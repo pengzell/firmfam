@@ -63,7 +63,6 @@ The variable names below are *required* by the analysis script. Any deviation wi
 | `f_workerID` | String | Person identifier of the father |
 | `m_workerID` | String | Person identifier of the mother |
 | **Variables used for covariate decomposition if available (see Covariate Variables section):** | | |
-| `FTE` | Integer | Full-time Employed Dummy: $1 =$ full-time, $0 =$ otherwise |
 | `ed_ID` | Integer | Education level category |
 | `czID` | String/Int | Commuting zone identifier |
 | `industryID` | String | One-letter NACE code (or another equivalently coarse classification) |
@@ -106,7 +105,6 @@ The AKM panel should cover the *full working-age population* (all workers aged 2
 | `firmID` | String | Employer identifier |
 | `female` | Integer | Gender: $1 =$ woman, $0 =$ man |
 | **If available:** | | |
-| `FTE` | Integer | Full-time Employed Dummy: $1 =$ full-time, $0 =$ otherwise |
 | `ed_ID` | Integer | Education level category |
 | `czID` | String/Int | Commuting zone identifier |
 | `industryID` | String | One-letter NACE code (or another equivalently coarse classification) |
